@@ -1,0 +1,13 @@
+SHOP_ID,SHOP_NAME,SHOP_CITY,SHOP_COUNTRY,IS_MOUNTAIN
+1,Aspen Mountain Sports,Aspen,USA,TRUE
+2,Park City Ski & Bike,Park City,USA,TRUE
+3,New York Cycling Hub,New York,USA,FALSE
+4,Miami Bike Center,Miami,USA,FALSE
+5,Chicago Sports Store,Chicago,USA,FALSE
+6,Innsbruck Alpine Sports,Innsbruck,Austria,TRUE
+7,Kitzbühel Mountain Shop,Kitzbühel,Austria,TRUE
+8,Vienna Bike & Sport,Vienna,Austria,FALSE
+9,Cerler Snow Center,Cerler,Spain,TRUE
+10,Baqueira Mountain Sports,Baqueira,Spain,TRUE
+11,Madrid Bike Store,Madrid,Spain,FALSE
+12,Barcelona Cycling,Barcelona,Spain,FALSE

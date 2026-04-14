@@ -2,13 +2,12 @@
 -- STEP 3: STAGES AND DATA INGESTION
 -- Run as: ACCOUNTADMIN
 -- Creates three internal stages (all with Snowflake SSE),
--- grants role-based read access, then copies files from the
--- Git repository into the appropriate stages.
+-- then copies files from the Git repository into the stages.
 --
 -- Stage layout:
---   CSV_STAGE       - structured CSV data  (BIKE_ROLE + SNOW_ROLE)
---   BIKE_DOCS_STAGE - bike PDFs / images   (BIKE_ROLE only)
---   SNOW_DOCS_STAGE - ski/snow PDFs / images (SNOW_ROLE only)
+--   CSV_STAGE       - structured CSV data
+--   BIKE_DOCS_STAGE - bike PDFs / images
+--   SNOW_DOCS_STAGE - ski/snow PDFs / images
 -- ============================================================
 
 USE ROLE ACCOUNTADMIN;
@@ -20,25 +19,17 @@ USE SCHEMA PUBLIC;
 
 CREATE OR REPLACE STAGE CSV_STAGE
     ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE')
-    COMMENT    = 'Structured CSV data files - accessible to both roles';
+    COMMENT    = 'Structured CSV data files';
 
 CREATE OR REPLACE STAGE BIKE_DOCS_STAGE
     DIRECTORY  = (ENABLE = TRUE)
     ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE')
-    COMMENT    = 'Bike product PDFs and images - BIKE_ROLE only';
+    COMMENT    = 'Bike product PDFs and images';
 
 CREATE OR REPLACE STAGE SNOW_DOCS_STAGE
     DIRECTORY  = (ENABLE = TRUE)
     ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE')
-    COMMENT    = 'Ski/snow product PDFs and images - SNOW_ROLE only';
-
--- ---- Stage access grants ----
--- CSV stage: both roles
-GRANT READ ON STAGE CSV_STAGE       TO ROLE BIKE_ROLE;
-GRANT READ ON STAGE CSV_STAGE       TO ROLE SNOW_ROLE;
--- Docs stages: role-specific
-GRANT READ ON STAGE BIKE_DOCS_STAGE TO ROLE BIKE_ROLE;
-GRANT READ ON STAGE SNOW_DOCS_STAGE TO ROLE SNOW_ROLE;
+    COMMENT    = 'Ski/snow product PDFs and images';
 
 -- ============================================================
 -- Copy CSV files from Git repository
@@ -48,9 +39,10 @@ COPY FILES INTO @CSV_STAGE
     FILES = (
         'DIM_ARTICLE.csv',
         'DIM_CUSTOMER.csv',
+        'DIM_SHOP.csv',
         'eval_dataset.csv',
         'customer_experience_comments.csv_0_0_0.csv.gz',
-        'fact_sales.csv_0_0_0.csv.gz'
+        'fact_sales.csv'
     );
 
 -- ============================================================
@@ -90,6 +82,6 @@ COPY FILES INTO @SNOW_DOCS_STAGE
     );
 
 -- ---- Verification: list stage contents ----
-LS @CSV_STAGE;        -- expect 5 files
+LS @CSV_STAGE;        -- expect 6 files
 LS @BIKE_DOCS_STAGE;  -- expect 13 files
 LS @SNOW_DOCS_STAGE;  -- expect 7 files
