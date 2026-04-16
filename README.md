@@ -128,3 +128,14 @@ Observe how CoCo is automatically selecting the right skills and interacting wit
 Your output may differ as the ouput of LLMs are not deterministic. but this is the plan suggested in this run:
 
 ![image](assets/image8.png)
+
+If you are ok with the plan suggested go ahead and confirm it. 
+
+Once the implemtation is done, your lab instructor should have received a slack message with what has been done:
+
+![image](assets/image9.png)
+
+It would be possible that once you try to use the Semantic View it produces some errors. If that is the case, you can just ask CoCo to correct that error. For example, in this case, the first Semantic Model produced got some errors. Ask CoCo:
+
+>When using the semantic model we got this error:
+>Unable to parse yaml to protobuf. Error: Failed to parse tables field: Failed to parse metrics field: >Message type "com.snowflake.cortex.analyst.Metric" has no field named "default_aggregation" at >"SemanticModel.tables[0].metrics[0]". Available Fields(except extensions): "['name', 'synonyms', >'description', 'expr', 'filter', 'accessModifier', 'tags', 'nonAdditiveDimensions', >'additiveDimensions', 'usingRelationships']"..
