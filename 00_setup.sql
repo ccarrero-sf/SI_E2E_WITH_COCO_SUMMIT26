@@ -1,14 +1,11 @@
 -- ============================================================
 -- ALL STEPS - CONSOLIDATED SCRIPT
--- Combines: 01_setup.sql → 02_git_integration.sql →
---           03_stages_and_ingestion.sql → 04_data_processing.sql →
---           06_tables_from_csv.sql → 07_cortex_search.sql
+-- RUN this previos to the lab so you have all data ready
 -- Run as: ACCOUNTADMIN
 -- ============================================================
 
 
 -- ============================================================
--- SOURCE: 01_setup.sql
 -- ============================================================
 
 -- ============================================================
@@ -31,47 +28,10 @@ USE SCHEMA PUBLIC;
 SHOW DATABASES LIKE 'CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E';
 
 
--- ============================================================
--- SOURCE: 02_git_integration.sql
--- ============================================================
+-- STEP 2: Removed. We are using workspaces and therefore no need for an extra git integration. We just
+--- get the files we need from this workspace.
 
 -- ============================================================
--- STEP 2: GIT INTEGRATION
--- Run as: ACCOUNTADMIN
--- Creates an account-level API integration for GitHub and a
--- database-level Git repository pointing to the source files.
--- The API integration persists across database re-creates.
--- Repo is public - no authentication secrets needed.
--- ============================================================
-
---USE ROLE ACCOUNTADMIN;
-USE WAREHOUSE COMPUTE_WH;
-USE DATABASE CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E;
-USE SCHEMA PUBLIC;
-
--- ---- Account-level API integration for GitHub ----
-CREATE OR REPLACE API INTEGRATION GITHUB_SI_E2E_INTEGRATION
-    API_PROVIDER         = GIT_HTTPS_API
-    API_ALLOWED_PREFIXES = ('https://github.com/ccarrero-sf/')
-    ENABLED              = TRUE
-    COMMENT              = 'API integration for ccarrero-sf GitHub organization (public repos)';
-
--- ---- Git repository (database-level object) ----
-CREATE OR REPLACE GIT REPOSITORY SI_E2E_FILES_REPO
-    API_INTEGRATION = GITHUB_SI_E2E_INTEGRATION
-    ORIGIN          = 'https://github.com/ccarrero-sf/SI_E2E_WITH_COCO_SUMMIT26'
-    COMMENT         = 'Source files for Snowflake Intelligence E2E lab';
-
--- Fetch latest content from remote
-ALTER GIT REPOSITORY SI_E2E_FILES_REPO FETCH;
-
--- ---- Verification: list files in both folders ----
-LS @SI_E2E_FILES_REPO/branches/main/csv/;
-LS @SI_E2E_FILES_REPO/branches/main/docs/;
-
-
--- ============================================================
--- SOURCE: 03_stages_and_ingestion.sql
 -- ============================================================
 
 -- ============================================================
@@ -105,7 +65,7 @@ CREATE OR REPLACE STAGE DOCS_STAGE
 -- Copy CSV files from Git repository
 -- ============================================================
 COPY FILES INTO @CSV_STAGE
-    FROM @SI_E2E_FILES_REPO/branches/main/csv/
+    FROM 'snow://workspace/USER$.PUBLIC.SI_E2E_WITH_COCO_SUMMIT26/versions/live/csv'
     FILES = (
         'DIM_ARTICLE.csv',
         'DIM_CUSTOMER.csv',
@@ -119,7 +79,7 @@ COPY FILES INTO @CSV_STAGE
 -- Copy all PDF and image documents from Git repository
 -- ============================================================
 COPY FILES INTO @DOCS_STAGE
-    FROM @SI_E2E_FILES_REPO/branches/main/docs/
+    FROM 'snow://workspace/USER$.PUBLIC.SI_E2E_WITH_COCO_SUMMIT26/versions/live/docs'
     PATTERN = '.*\.(pdf|PDF|jpeg|JPEG|jpg|JPG)$';
 
 -- ---- Verification: list stage contents ----
@@ -128,7 +88,6 @@ LS @DOCS_STAGE;   -- expect 20 files (13 bike + 7 snow)
 
 
 -- ============================================================
--- SOURCE: 04_data_processing.sql
 -- ============================================================
 
 -- ============================================================
@@ -306,7 +265,6 @@ ORDER BY SOURCE_FILE;
 
 
 -- ============================================================
--- SOURCE: 06_tables_from_csv.sql
 -- ============================================================
 
 -- ============================================================
