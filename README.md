@@ -56,12 +56,12 @@ Click on the 00_setup.sql script and run it all:
 
 This script will:
 
-** Create or replace a new databse for this lab: CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
-** Create stage files and copy the csv, pdf and image files from this repository
-** Parse and classify the PDF documents
-** Describe and classify the images
-** Create Snowflake tables from the CSV files
-** Create Cortex Search Services for the images, documents and customer feedback
+-  Create or replace a new databse for this lab: CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
+-  Create stage files and copy the csv, pdf and image files from this repository
+-  Parse and classify the PDF documents
+-  Describe and classify the images
+-  Create Snowflake tables from the CSV files
+-  Create Cortex Search Services for the images, documents and customer feedback
 
 This is what we should have to start our lab:
 
@@ -75,4 +75,55 @@ Follow the official [installation guide](https://docs.snowflake.com/en/user-guid
 The first prompt asks you to choose a connection from the existing connections in the ~/.snowflake/connections.toml file or to create a new connection.
 
 As you will be connecting to a demo account provisioned for you during this lab, you will have to create a new connection, choose More options* by pressing the down arrow key until it is highlighted, then press Enter. Follow the prompts to enter your Snowflake account details.
+
+If you have already used CoCo, you want the Agent Connection and SQL Connection to leverage the Snowflake account you are using for this lab. Run cortex and type /connections and add a new one:
+
+![image](assets/image6.png)
+
+## Step 4: Connect CoCo with the Summit Slack Channel
+
+In this step, we are going to connect CoCo with a specific demo Slack channel we are going to be using fo this lab. The goal is that CoCo can provide notifictions about the work it is doing.
+
+You may want to create in your laptop one specific folder for this lab. Go ther, and call cortex:
+
+'''code
+cortex
+'''
+
+Ask CoCo with this prompt to make this connection (the specific Team ID and Token will be provided to you separately):
+
+
+>Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create >a connection with the Team ID: T08-------CC and
+>Oauth Token: xoxb-875--------------------------------------vs
+>
+>Write a message to the channel saying hello I am <add your name for CoCo> and what account you are >connected to.
+
+After this, your lab instructor should start getting messages in the slack channel like this:
+
+![image](assets/image7.png)
+
+## Step 5: Create a Semantic Model using CoCo
+
+Our fist step is to create a Semantic Model that can be used by our agents to ask questions in natural language to query the Snowflake tables. We are going to ask CoCo to make that work. In the cortex session you have open, lets do the following:
+
+First enable /plan mode, so we can verify what will be done
+
+> /plan
+
+Now enter this prompt 
+
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We >want to create a semantic model on the Snowflake tables we have so it will be used later with one >Snowflake Agent. The semantic view should include some business logic and terminology. The stage area >contains one file with examples of questions we wanted to ask and that we will be using later for >validation.
+>
+>Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder >called output.
+>
+>Once you have created all the scripts needed, run them and check they are ok. Correct any failure.
+>
+>Create a README (add a suffix with the name of the step) file with the steps you took here.
+>
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
+
+Observe how CoCo is automatically selecting the right skills and interacting with the data to build the plan for the Semantic View. It may even get some errors but it will re-think and correct them.
+
+
+Your output may differ as the ouput of LLMs are not deterministic. but this is the plan suggested in this run:
 
