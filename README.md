@@ -54,4 +54,25 @@ Click on the 00_setup.sql script and run it all:
 
 ![image](assets/image4.png)
 
-This script will 
+This script will:
+
+** Create or replace a new databse for this lab: CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
+** Create stage files and copy the csv, pdf and image files from this repository
+** Parse and classify the PDF documents
+** Describe and classify the images
+** Create Snowflake tables from the CSV files
+** Create Cortex Search Services for the images, documents and customer feedback
+
+This is what we should have to start our lab:
+
+![image](assets/image5.png)
+
+
+## Step 3: Install Cortex Code (CoCo) CLI
+
+Follow the official [installation guide](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli) to install and configure Cortex Code CLI.
+
+The first prompt asks you to choose a connection from the existing connections in the ~/.snowflake/connections.toml file or to create a new connection.
+
+As you will be connecting to a demo account provisioned for you during this lab, you will have to create a new connection, choose More options* by pressing the down arrow key until it is highlighted, then press Enter. Follow the prompts to enter your Snowflake account details.
+
