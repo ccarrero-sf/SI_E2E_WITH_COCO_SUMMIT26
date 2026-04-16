@@ -139,3 +139,8 @@ It would be possible that once you try to use the Semantic View it produces some
 
 >When using the semantic model we got this error:
 >Unable to parse yaml to protobuf. Error: Failed to parse tables field: Failed to parse metrics field: >Message type "com.snowflake.cortex.analyst.Metric" has no field named "default_aggregation" at >"SemanticModel.tables[0].metrics[0]". Available Fields(except extensions): "['name', 'synonyms', >'description', 'expr', 'filter', 'accessModifier', 'tags', 'nonAdditiveDimensions', >'additiveDimensions', 'usingRelationships']"..
+
+And CoCo corrected the error:
+
+![image](assets/image10.png)
+
