@@ -127,3 +127,4 @@ Observe how CoCo is automatically selecting the right skills and interacting wit
 
 Your output may differ as the ouput of LLMs are not deterministic. but this is the plan suggested in this run:
 
+![image](assets/image8.png)
