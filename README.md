@@ -192,3 +192,10 @@ When it is done, CoCo explain a summary of what is done, but as instructed, we a
 >
 >Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
 
+You can observe that CoCo is also managing the executions of the evaluations. Message in the Slack channel:
+
+![image](assets/image13.png)
+
+If you click on AI & ML --> Agents and select the SALES_EXPERT_AGENT, you can see the evaluations we have:
+
+![image](assets/image14.png)
