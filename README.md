@@ -135,12 +135,60 @@ Once the implemtation is done, your lab instructor should have received a slack 
 
 ![image](assets/image9.png)
 
-It would be possible that once you try to use the Semantic View it produces some errors. If that is the case, you can just ask CoCo to correct that error. For example, in this case, the first Semantic Model produced got some errors. Ask CoCo:
+It would be possible that once you try to use the Semantic View it produces some errors. If that is the case, you can just ask CoCo to correct that error. For example, in this case, the first Semantic Model produced got some errors. Ask CoCo to fix your error (this is just one examle, do not copy paste from here):
 
 >When using the semantic model we got this error:
 >Unable to parse yaml to protobuf. Error: Failed to parse tables field: Failed to parse metrics field: >Message type "com.snowflake.cortex.analyst.Metric" has no field named "default_aggregation" at >"SemanticModel.tables[0].metrics[0]". Available Fields(except extensions): "['name', 'synonyms', >'description', 'expr', 'filter', 'accessModifier', 'tags', 'nonAdditiveDimensions', >'additiveDimensions', 'usingRelationships']"..
 
-And CoCo corrected the error:
+And CoCo corrected the error in our case:
 
 ![image](assets/image10.png)
+
+You can test the Semantic View going to AI & ML ->  Analyst and select your Semantic Model. In the Playground you can ask questions to test it.
+
+## Step 6: Create an Agent
+
+Now we want CoCo to help us builindg and Agent that will be able to leverate the information we have both in images, pdf couments and Snowflake table. The agent shoudl be able to use all that information in order to respond to different questions about the product and sales.
+
+We also want to agent to have the capability of sending emails at the end.
+
+This is the prompt we will be using (copy/past):
+
+
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
+>Where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic >View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to >respond to product specification questions and sales about those products. It should be able to also dig >into customer issues and understand differences in sales between products. 
+>
+>The Agent is multi-lingual and should always respond in the same language the questions are being asked.
+>
+>The Agent should also finish asking if a summary should be sent by email and have a tool to send it.
+>
+>The Agent will be used with Snowflake Intelligence.
+>
+>Create a the scripts with those steps and check it runs ok.
+>
+>Create another README file for this work with the steps you took
+>
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
+
+In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plues the custom tool to send email. 
+
+![image](assets/image11.png)
+
+When it is done, CoCo explain a summary of what is done, but as instructed, we also have it in our Slack channel:
+
+![image](assets/image12.png)
+
+## Step 7: AI Observability
+
+>Next step is to leverage AI_OBSERVABILITY in order to evaluate how the Agent we have created works. >Ideally you should be proposing here the questions, the tools to be used and the expected results. For >this lab we are going to also let CoCo to create those.
+>
+>With this prompt we ask CoCo to leverage AI_OBSERVABILITY for this Agent:
+>
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been >configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that >agent. Create a table with typical questions and answers expected that you can leverage. Limit it to 5 >questions for evaluation.
+>
+>Create all the scripts with those steps and check it runs ok.
+>
+>Create another README file for this work with the steps you took
+>
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
 
