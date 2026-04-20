@@ -186,10 +186,18 @@ When it is done, CoCo explain a summary of what is done, but as instructed, we a
 
 ![image](assets/image12.png)
 
+Your Agent is now ready to be used. You can start asking questions. Let's see what is the answer to this question:
+
+>Analyze the month by month sales of our products and detect and research any anomaly pattern you may find
+
+Or if you prefer, ask the same question in Spanish (or your prefered language) and check the answer:
+
+>Analiza las ventas mensuales de nuestros productos, identifica e investiga cualquier anomalía que puedas encontrar
+
+
 ## Step 7: AI Observability
 
 <pre style="white-space: pre-wrap;">
-```code
 We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create the table needed by AI_OBSERVABILITY with these questions, valid answers and the tools used:
 
 Question: What is the bike with more revenue last year and what is their guarantee
@@ -212,7 +220,6 @@ Create all the scripts with those steps and check it runs ok.
 Create another README file for this work with the steps you took
 
 Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
-```
 </pre>
 
 You can observe that CoCo is also managing the executions of the evaluations. Message in the Slack channel:
@@ -222,3 +229,37 @@ You can observe that CoCo is also managing the executions of the evaluations. Me
 If you click on AI & ML --> Agents and select the SALES_EXPERT_AGENT, you can see the evaluations we have:
 
 ![image](assets/image14.png)
+
+## Step 8: Cost Governance
+
+Last step in this lab is asking CoCo to provide visibility of the usage we are having and provide cost control for the Agent we have just created. We can use this prompt:
+
+```code
+We want to have some cost governance. First let me know how many tokens and credits  have been used by CoCo in this lab. Second, let me know how we can control the cost of the Agent we have just created. Propose a plan for it. Post it in the summit_HOL slack channel.
+
+Create and run all the scripts needed and request the input you may need about budget control
+````
+
+As we are requesting, CoCo will be asking about our budget and all information needed to create budgets. Then it will create all the scripts needed. It will also provide a warning as the CoCo CLI usage is in the account usage view with some latency:
+
+![image](assets/image15.png)
+
+## Step 9: [Optional] Provide Weather information to the agent
+
+As an optionl step, we can ask CoCo to add another tool to the agent that will provide weather information. This can be useful in order to provide context about weather when needed to the agent. This can be a useful prompt:
+
+```code
+We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to add a tool for that agent in order to check weather information. We want the agent to connect with a Weather MCP Server. Create a new version of the current agent with this tool.
+
+Add all the steps that are needed to add it. 
+
+Create all the scripts with those steps and check it runs ok.
+
+Create another README file for this work with the steps you took
+
+Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
+```
+
+
+
+
