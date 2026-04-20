@@ -86,17 +86,17 @@ In this step, we are going to connect CoCo with a specific demo Slack channel we
 
 You may want to create in your laptop one specific folder for this lab. Go ther, and call cortex:
 
-'''code
+```code
 cortex
-'''
+```
 
 Ask CoCo with this prompt to make this connection (the specific Team ID and Token will be provided to you separately):
 
 
->Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create >a connection with the Team ID: T08-------CC and
->Oauth Token: xoxb-875--------------------------------------vs
+>Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
+Oauth Token: xoxb-875--------------------------------------vs
 >
->Write a message to the channel saying hello I am <add your name for CoCo> and what account you are >connected to.
+>Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
 
 After this, your lab instructor should start getting messages in the slack channel like this:
 
@@ -112,15 +112,15 @@ First enable /plan mode, so we can verify what will be done
 
 Now enter this prompt 
 
->We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We >want to create a semantic model on the Snowflake tables we have so it will be used later with one >Snowflake Agent. The semantic view should include some business logic and terminology. The stage area >contains one file with examples of questions we wanted to ask and that we will be using later for >validation.
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We want to create a semantic model on the Snowflake tables we have so it will be used later with one Snowflake Agent. The semantic view should include some business logic and terminology. The stage area contains one file with examples of questions we wanted to ask and that we will be using later for validation.
 >
->Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder >called output.
+>Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder called output.
 >
 >Once you have created all the scripts needed, run them and check they are ok. Correct any failure.
 >
 >Create a README (add a suffix with the name of the step) file with the steps you took here.
 >
->Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
 
 Observe how CoCo is automatically selecting the right skills and interacting with the data to build the plan for the Semantic View. It may even get some errors but it will re-think and correct them.
 
@@ -138,7 +138,7 @@ Once the implemtation is done, your lab instructor should have received a slack 
 It would be possible that once you try to use the Semantic View it produces some errors. If that is the case, you can just ask CoCo to correct that error. For example, in this case, the first Semantic Model produced got some errors. Ask CoCo to fix your error (this is just one examle, do not copy paste from here):
 
 >When using the semantic model we got this error:
->Unable to parse yaml to protobuf. Error: Failed to parse tables field: Failed to parse metrics field: >Message type "com.snowflake.cortex.analyst.Metric" has no field named "default_aggregation" at >"SemanticModel.tables[0].metrics[0]". Available Fields(except extensions): "['name', 'synonyms', >'description', 'expr', 'filter', 'accessModifier', 'tags', 'nonAdditiveDimensions', >'additiveDimensions', 'usingRelationships']"..
+>Unable to parse yaml to protobuf. Error: Failed to parse tables field: Failed to parse metrics field: Message type "com.snowflake.cortex.analyst.Metric" has no field named "default_aggregation" at "SemanticModel.tables[0].metrics[0]". Available Fields(except extensions): "['name', 'synonyms', 'description', 'expr', 'filter', 'accessModifier', 'tags', 'nonAdditiveDimensions', 'additiveDimensions', 'usingRelationships']"..
 
 And CoCo corrected the error in our case:
 
@@ -156,7 +156,7 @@ This is the prompt we will be using (copy/past):
 
 
 >We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
->Where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic >View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to >respond to product specification questions and sales about those products. It should be able to also dig >into customer issues and understand differences in sales between products. 
+>Where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to respond to product specification questions and sales about those products. It should be able to also dig into customer issues and understand differences in sales between products. 
 >
 >The Agent is multi-lingual and should always respond in the same language the questions are being asked.
 >
@@ -168,7 +168,7 @@ This is the prompt we will be using (copy/past):
 >
 >Create another README file for this work with the steps you took
 >
->Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
 
 In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plues the custom tool to send email. 
 
@@ -180,17 +180,17 @@ When it is done, CoCo explain a summary of what is done, but as instructed, we a
 
 ## Step 7: AI Observability
 
->Next step is to leverage AI_OBSERVABILITY in order to evaluate how the Agent we have created works. >Ideally you should be proposing here the questions, the tools to be used and the expected results. For >this lab we are going to also let CoCo to create those.
+>Next step is to leverage AI_OBSERVABILITY in order to evaluate how the Agent we have created works. Ideally you should be proposing here the questions, the tools to be used and the expected results. For this lab we are going to also let CoCo to create those.
 >
 >With this prompt we ask CoCo to leverage AI_OBSERVABILITY for this Agent:
 >
->We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been >configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that >agent. Create a table with typical questions and answers expected that you can leverage. Limit it to 5 >questions for evaluation.
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create a table with typical questions and answers expected that you can leverage. Limit it to 5 questions for evaluation.
 >
 >Create all the scripts with those steps and check it runs ok.
 >
 >Create another README file for this work with the steps you took
 >
->Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are >done. Identify who you are in the message.
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
 
 You can observe that CoCo is also managing the executions of the evaluations. Message in the Slack channel:
 
