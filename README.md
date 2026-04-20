@@ -188,19 +188,32 @@ When it is done, CoCo explain a summary of what is done, but as instructed, we a
 
 ## Step 7: AI Observability
 
+<pre style="white-space: pre-wrap;">
 ```code
-Next step is to leverage AI_OBSERVABILITY in order to evaluate how the Agent we have created works. Ideally you should be proposing here the questions, the tools to be used and the expected results. For this lab we are going to also let CoCo to create those.
+We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create the table needed by AI_OBSERVABILITY with these questions, valid answers and the tools used:
 
-With this prompt we ask CoCo to leverage AI_OBSERVABILITY for this Agent:
+Question: What is the bike with more revenue last year and what is their guarantee
+Answer: The Mondracer Infant Bike was the bike with the highest revenue last year (2025), generating $16,353,000 USD in total sales. The guarantee is 3 years
+Tools: Analytical tool and search tool for products
 
-We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create a table with typical questions and answers expected that you can leverage. Limit it to 5 questions for evaluation.
+Question: Who tested the ski boots?
+Answer: The Cerler-Aneto ski club
+Tools. Search tool for product
+
+Question: What is the ski with highest and lowest sales for the entire period?
+Answer: Highest sales: Racing Fast Skis with $580,450 in total revenue. Lowest sales: Carver Skis with $500,070 in total revenue
+Tools. Analytical tool
+
+Question: What is the product with lower sales and what is the feedback that we have
+Answer: Ski Boots TDBootz Special. Good feedback for comfort, fit, durability, 
 
 Create all the scripts with those steps and check it runs ok.
 
 Create another README file for this work with the steps you took
 
-Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
+Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
 ```
+</pre>
 
 You can observe that CoCo is also managing the executions of the evaluations. Message in the Slack channel:
 
