@@ -92,12 +92,10 @@ cortex
 
 Ask CoCo with this prompt to make this connection (the specific Team ID and Token will be provided to you separately):
 
-```
-Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
+>Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
 Oauth Token: xoxb-875--------------------------------------vs
-
-Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
-````
+>
+>Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
 
 After this, your lab instructor should start getting messages in the slack channel like this:
 
@@ -113,18 +111,15 @@ First enable /plan mode, so we can verify what will be done
 
 Now enter this prompt 
 
-
-```code
-We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We want to create a semantic model on the Snowflake tables we have so it will be used later with one Snowflake Agent. The semantic view should include some business logic and terminology. The stage area contains one file with examples of questions we wanted to ask and that we will be using later for validation.
-
-Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder called output.
-
-Once you have created all the scripts needed, run them and check they are ok. Correct any failure.
-
-Create a README (add a suffix with the name of the step) file with the steps you took here.
-
-Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
-```
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We want to create a semantic model on the Snowflake tables we have so it will be used later with one Snowflake Agent. The semantic view should include some business logic and terminology. The stage area contains one file with examples of questions we wanted to ask and that we will be using later for validation.
+>
+>Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder called output.
+>
+>Once you have created all the scripts needed, run them and check they are ok. Correct any failure.
+>
+>Create a README (add a suffix with the name of the step) file with the steps you took here.
+>
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
 
 Observe how CoCo is automatically selecting the right skills and interacting with the data to build the plan for the Semantic View. It may even get some errors but it will re-think and correct them.
 
@@ -161,22 +156,19 @@ We also want to agent to have the capability of sending emails at the end.
 
 This is the prompt we will be using (copy/past):
 
-```code
-We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
-Where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to respond to product specification questions and sales about those products. It should be able to also dig into customer issues and understand differences in sales between products. 
-
-The Agent is multi-lingual and should always respond in the same language the questions are being asked.
-
-The Agent should also finish asking if a summary should be sent by email and have a tool to send it.
-
-The Agent will be used with Snowflake Intelligence.
-
-Create a the scripts with those steps and check it runs ok.
-
-Create another README file for this work with the steps you took
-
-Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
-```
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to respond to product specification questions and sales about those products. It should be able to also dig into customer issues and understand differences in sales between products. 
+>
+>The Agent is multi-lingual and should always respond in the same language the questions are being asked.
+>
+>The Agent should also finish asking if a summary should be sent by email and have a tool to send it.
+>
+>The Agent will be used with Snowflake Intelligence.
+>
+>Create a the scripts with those steps and check it runs ok.
+>
+>Create another README file for this work with the steps you took
+>
+>Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
 
 In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plues the custom tool to send email. 
 
@@ -197,30 +189,28 @@ Or if you prefer, ask the same question in Spanish (or your prefered language) a
 
 ## Step 7: AI Observability
 
-<pre style="white-space: pre-wrap;">
-We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create the table needed by AI_OBSERVABILITY with these questions, valid answers and the tools used:
-
-Question: What is the bike with more revenue last year and what is their guarantee
-Answer: The Mondracer Infant Bike was the bike with the highest revenue last year (2025), generating $16,353,000 USD in total sales. The guarantee is 3 years
-Tools: Analytical tool and search tool for products
-
-Question: Who tested the ski boots?
-Answer: The Cerler-Aneto ski club
-Tools. Search tool for product
-
-Question: What is the ski with highest and lowest sales for the entire period?
-Answer: Highest sales: Racing Fast Skis with $580,450 in total revenue. Lowest sales: Carver Skis with $500,070 in total revenue
-Tools. Analytical tool
-
-Question: What is the product with lower sales and what is the feedback that we have
-Answer: Ski Boots TDBootz Special. Good feedback for comfort, fit, durability, 
-
-Create all the scripts with those steps and check it runs ok.
-
-Create another README file for this work with the steps you took
-
-Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
-</pre>
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to leverage the AI Observability for Agents for Snowflake in order to validate that agent. Create the table needed by AI_OBSERVABILITY with these questions, valid answers and the tools used:
+>
+>Question: What is the bike with more revenue last year and what is their guarantee
+>Answer: The Mondracer Infant Bike was the bike with the highest revenue last year (2025), generating $16,353,000 USD in total sales. The guarantee is 3 years
+>Tools: Analytical tool and search tool for products
+>
+>Question: Who tested the ski boots?
+>Answer: The Cerler-Aneto ski club
+>Tools. Search tool for product
+>
+>Question: What is the ski with highest and lowest sales for the entire period?
+>Answer: Highest sales: Racing Fast Skis with $580,450 in total revenue. Lowest sales: Carver Skis with $500,070 in total revenue
+>Tools. Analytical tool
+>
+>Question: What is the product with lower sales and what is the feedback that we have
+>Answer: Ski Boots TDBootz Special. Good feedback for comfort, fit, durability, 
+>
+>Create all the scripts with those steps and check it runs ok.
+>
+>Create another README file for this work with the steps you took
+>
+>Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
 
 You can observe that CoCo is also managing the executions of the evaluations. Message in the Slack channel:
 
@@ -234,11 +224,9 @@ If you click on AI & ML --> Agents and select the SALES_EXPERT_AGENT, you can se
 
 Last step in this lab is asking CoCo to provide visibility of the usage we are having and provide cost control for the Agent we have just created. We can use this prompt:
 
-```code
-We want to have some cost governance. First let me know how many tokens and credits  have been used by CoCo in this lab. Second, let me know how we can control the cost of the Agent we have just created. Propose a plan for it. Post it in the summit_HOL slack channel.
-
-Create and run all the scripts needed and request the input you may need about budget control
-````
+>We want to have some cost governance. First let me know how many tokens and credits  have been used by CoCo in this lab. Second, let me know how we can control the cost of the Agent we have just created. Propose a plan for it. Post it in the summit_HOL slack channel.
+>
+>Create and run all the scripts needed and request the input you may need about budget control
 
 As we are requesting, CoCo will be asking about our budget and all information needed to create budgets. Then it will create all the scripts needed. It will also provide a warning as the CoCo CLI usage is in the account usage view with some latency:
 
@@ -248,17 +236,16 @@ As we are requesting, CoCo will be asking about our budget and all information n
 
 As an optionl step, we can ask CoCo to add another tool to the agent that will provide weather information. This can be useful in order to provide context about weather when needed to the agent. This can be a useful prompt:
 
-```code
-We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to add a tool for that agent in order to check weather information. We want the agent to connect with a Weather MCP Server. Create a new version of the current agent with this tool.
 
-Add all the steps that are needed to add it. 
-
-Create all the scripts with those steps and check it runs ok.
-
-Create another README file for this work with the steps you took
-
-Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
-```
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where one Snowflake Agent has already been configured. We want to add a tool for that agent in order to check weather information. We want the agent to connect with a Weather MCP Server. Create a new version of the current agent with this tool.
+>
+>Add all the steps that are needed to add it. 
+>
+>Create all the scripts with those steps and check it runs ok.
+>
+>Create another README file for this work with the steps you took
+>
+>Once you are done, send a message to the summit_HOL slack chanel with a brief summary of what you are done. Identify who you are in the message.
 
 
 
