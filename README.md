@@ -92,11 +92,12 @@ cortex
 
 Ask CoCo with this prompt to make this connection (the specific Team ID and Token will be provided to you separately):
 
-
+```code
 >Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
 Oauth Token: xoxb-875--------------------------------------vs
 >
 >Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
+````
 
 After this, your lab instructor should start getting messages in the slack channel like this:
 
@@ -112,7 +113,9 @@ First enable /plan mode, so we can verify what will be done
 
 Now enter this prompt 
 
->We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We want to create a semantic model on the Snowflake tables we have so it will be used later with one Snowflake Agent. The semantic view should include some business logic and terminology. The stage area contains one file with examples of questions we wanted to ask and that we will be using later for validation.
+
+```code
+**>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we already have tables with sales data. We want to create a semantic model on the Snowflake tables we have so it will be used later with one Snowflake Agent. The semantic view should include some business logic and terminology. The stage area contains one file with examples of questions we wanted to ask and that we will be using later for validation.
 >
 >Everything should be scripted so we can reproduce it anytime. Enumerate it.. Create all under a folder called output.
 >
@@ -121,6 +124,8 @@ Now enter this prompt
 >Create a README (add a suffix with the name of the step) file with the steps you took here.
 >
 >Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
+**
+```
 
 Observe how CoCo is automatically selecting the right skills and interacting with the data to build the plan for the Semantic View. It may even get some errors but it will re-think and correct them.
 
