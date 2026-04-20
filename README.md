@@ -92,11 +92,11 @@ cortex
 
 Ask CoCo with this prompt to make this connection (the specific Team ID and Token will be provided to you separately):
 
-```code
->Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
+```
+Leverage the MCP server connection to Slack so you can write messages to the channel summit_HOL. Create a connection with the Team ID: T08-------CC and
 Oauth Token: xoxb-875--------------------------------------vs
->
->Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
+
+Write a message to the channel saying hello I am <add your name for CoCo> and what account you are connected to.
 ````
 
 After this, your lab instructor should start getting messages in the slack channel like this:
