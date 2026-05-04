@@ -184,13 +184,33 @@ When it is done, CoCo explain a summary of what is done, but as instructed, we a
 
 ![image](assets/image12.png)
 
-Your Agent is now ready to be used. You can start asking questions. Let's see what is the answer to this question:
+Your Agent is now ready to be used. You can review it under AI & ML -> Agents
+
+![image](assets/agent.png)
+
+If you click in the agent, you can review the tools it is being used, the description, planning instructions, etc. You can also add more specific details if needed. To add it to Snowflake Intelligence, click on +Add agent so it will be available there:
+
+![image](assets/agent_details.png)
+
+Oh, but when I try to add that agent to Snowflake Intelligence, I get a message that I do not have the right privileges. We have being using Cortex Code CLI in this lab, let's now use Cortex Code within Snowsight. Open it and ask for thelp there. Just follow the instructions:
+
+![image](assets/agent_troubleshooting.png)
+
+Cortex Code in the Snowsight will do the work for you!
+
+![image](assets/agent_troubleshooting2.png)
+
+
+You can start asking questions. Let's see what is the answer to this question:
 
 >Analyze the month by month sales of our products and detect and research any anomaly pattern you may find
 
 Or if you prefer, ask the same question in Spanish (or your prefered language) and check the answer:
 
 >Analiza las ventas mensuales de nuestros productos, identifica e investiga cualquier anomalía que puedas encontrar
+
+![image](assets/SI.png)
+
 
 
 ## Step 7: AI Observability
