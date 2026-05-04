@@ -79,7 +79,7 @@ As you will be connecting to a demo account provisioned for you during this lab,
 You can get your account name running this command:
 
 ```code
-SELECT CURRENT_ACCOUNT_NAME();
+SELECT CURRENT_ORGANIZATION_NAME() || '-' || CURRENT_ACCOUNT_NAME();
 ```
 
 If you have already used CoCo, you want the Agent Connection and SQL Connection to leverage the Snowflake account you are using for this lab. Run cortex and type /connections and add a new one:
