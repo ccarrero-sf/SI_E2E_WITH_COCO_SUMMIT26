@@ -76,6 +76,12 @@ The first prompt asks you to choose a connection from the existing connections i
 
 As you will be connecting to a demo account provisioned for you during this lab, you will have to create a new connection, choose More options* by pressing the down arrow key until it is highlighted, then press Enter. Follow the prompts to enter your Snowflake account details.
 
+You can get your account name running this command:
+
+```code
+SELECT CURRENT_ACCOUNT_NAME();
+```
+
 If you have already used CoCo, you want the Agent Connection and SQL Connection to leverage the Snowflake account you are using for this lab. Run cortex and type /connections and add a new one:
 
 ![image](assets/image6.png)
