@@ -15,7 +15,15 @@
 -- ============================================================
 
 USE ROLE ACCOUNTADMIN;
+CREATE WAREHOUSE IF NOT EXISTS COMPUTE_WH
+    WAREHOUSE_SIZE = SMALL
+    AUTO_SUSPEND = 60
+    INITIALLY_SUSPENDED = TRUE;
 USE WAREHOUSE COMPUTE_WH;
+-- Enable cross region in order to access all models needed in the lab independly where you are running it
+ALTER ACCOUNT SET CORTEX_MODELS_ALLOWLIST = 'All';
+ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'ANY_REGION';
+CALL SNOWFLAKE.MODELS.CORTEX_BASE_MODELS_REFRESH();
 
 -- Drop and recreate the database fresh on every run
 CREATE OR REPLACE DATABASE CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
@@ -180,7 +188,6 @@ WHERE c.value::VARCHAR IS NOT NULL
 -- ============================================================
 -- PART D: Process IMAGE files from DOCS_STAGE
 -- AI_COMPLETE generates a rich description; AI_CLASSIFY assigns category
--- NOTE: If claude-3-7-sonnet is unavailable for images, use claude-3-5-sonnet
 -- ============================================================
 INSERT INTO DOCS_CHUNKS_TABLE (SOURCE_FILE, FILE_TYPE, PRODUCT_CATEGORY, STAGE_NAME, CHUNK_TEXT, CHUNK_INDEX)
 SELECT
@@ -192,7 +199,7 @@ SELECT
     ):labels[0]::VARCHAR AS product_category,
     'DOCS_STAGE'  AS stage_name,
     AI_COMPLETE(
-        'claude-3-7-sonnet',
+        'claude-sonnet-4-6',
         PROMPT('Provide a detailed description of this product image {0}. Focus on the product shown, its visible features, design characteristics, colors, components, and any relevant details useful for a customer considering this product.',
             TO_FILE('@DOCS_STAGE', RELATIVE_PATH))
     ) AS chunk_text,
