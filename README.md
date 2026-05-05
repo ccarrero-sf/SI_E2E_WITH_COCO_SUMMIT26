@@ -167,7 +167,7 @@ Where we want to build one Snowflake Agent that will leverage the Cortex Search 
 >
 >The Agent is multi-lingual and should always respond in the same language the questions are being asked.
 >
->Leverage the external MCP server for slack already configured. Always ask if you should send a message to the summit_HOL slack channel with a brief summary of the response. Identify who you are and from what account you are sending the message.
+>Leverage the external MCP server for slack already configured. Always ask if you should send a message to the agent_reports_summary slack channel with a brief summary of the response. Identify who you are and from what account you are sending the message.
 >
 >Create all the scripts with those steps and check it runs ok.
 >
