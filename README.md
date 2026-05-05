@@ -162,19 +162,17 @@ We also want to agent to have the capability of sending emails at the end.
 
 This is the prompt we will be using (copy/past):
 
->We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to respond to product specification questions and sales about those products. It should be able to also dig into customer issues and understand differences in sales between products. 
+>We have the database CC_CoCo_SNOWFLAKE_INTELLIGENCE_E2E
+Where we want to build one Snowflake Agent that will leverage the Cortex Search Tools and the Semantic View available in that database. The Agent is a Sales Expert for the retailer company. Should be able to respond to product specification questions and sales about those products. It should be able to also dig into customer issues and understand differences in sales between products. 
 >
 >The Agent is multi-lingual and should always respond in the same language the questions are being asked.
 >
->The Agent should also finish asking if a summary should be sent by email and have a tool to send it.
+>Leverage the external MCP server for slack already configured. Always ask if you should send a message to the summit_HOL slack channel with a brief summary of the response. Identify who you are and from what account you are sending the message.
 >
->The Agent will be used with Snowflake Intelligence.
->
->Create a the scripts with those steps and check it runs ok.
+>Create all the scripts with those steps and check it runs ok.
 >
 >Create another README file for this work with the steps you took
->
->Once you are done, send a message to the summit_HOL slack channel with a brief summary of what you are done. Identify who you are in the message.
+
 
 In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plues the custom tool to send email. 
 
@@ -200,6 +198,9 @@ Cortex Code in the Snowsight will do the work for you!
 
 ![image](assets/agent_troubleshooting2.png)
 
+In order for the agent to use the MCP Server, Snoflake Intelligence needs to authenticate. Open Snowflake Intelligence, go to Connectos and click on Connect for the slack connector:
+
+![image](assets/slack_connector.png)
 
 You can start asking questions. Let's see what is the answer to this question:
 

@@ -571,3 +571,26 @@ SELECT PARSE_JSON(
         }'
     )
 )['results'] AS ski_feedback_results;
+
+
+-- Connect with the pre-defined MCP Server. Customize it with your own credentials:
+
+CREATE API INTEGRATION slack_mcp_integration
+  API_PROVIDER = external_mcp
+  API_ALLOWED_PREFIXES = ('https://mcp.slack.com')
+  API_USER_AUTHENTICATION = (
+    TYPE = OAUTH2
+    OAUTH_CLIENT_ID = '<your_id>'
+    OAUTH_CLIENT_SECRET = 'xoxb-your-secret'
+    OAUTH_TOKEN_ENDPOINT = 'https://slack.com/api/oauth.v2.user.access'
+    OAUTH_AUTHORIZATION_ENDPOINT = 'https://slack.com/oauth/v2_user/authorize'
+    OAUTH_CLIENT_AUTH_METHOD = CLIENT_SECRET_POST
+    OAUTH_ALLOWED_SCOPES = ('search:read', 'chat:write')
+  )
+  ENABLED = TRUE;
+
+
+  CREATE OR REPLACE EXTERNAL MCP SERVER slack_mcp_server
+  WITH DISPLAY_NAME = 'Slack'
+  URL = 'https://mcp.slack.com/mcp'
+  API_INTEGRATION = slack_mcp_integration;
