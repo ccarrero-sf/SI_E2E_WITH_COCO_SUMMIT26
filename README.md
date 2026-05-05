@@ -1,4 +1,15 @@
 # Snowflake Intelligence End-to-End Lab — Setup
+## Introduction
+
+This lab shows a ficticious retail company that sells bikes and snow products. We want to create one Agent that will be able to support a Sales Analyst in the company. The Agent will be able to extract context from these sources:
+
+- Sales Data
+- Product Guides
+- Product Pictures
+- Customer Feedback
+
+With all that information, the Agent should be able to investigate sales trends, customer feedback, product details and reason complex question using all that data available. The Agent also will be able to post results in Slack.
+
 
 This directory contains all SQL scripts needed to provision the Snowflake environment for the **Snowflake Intelligence E2E lab** from scratch and the steps needed to complete the lab.
 
