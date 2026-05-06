@@ -185,7 +185,7 @@ Where we want to build one Snowflake Agent that will leverage the Cortex Search 
 >Create another README file for this work with the steps you took
 
 
-In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plues the custom tool to send email. 
+In the proposed plan, we can see how in our case, it has identified the Semantic View we just created, plus the Cortex Search service for the documents and customer feedback that was created by the first script, plus the MCP Server connection to send messages to the Slack channel. 
 
 ![image](assets/image11.png)
 
